@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import RoundButton from './RoundButton.tsx';
-import './App.css'
+import RightColumn from './components/RightColumn.tsx'
+import './css/App.css'
 import './fonts/meiryo.ttf'
 import './fonts/Eurostar.ttf'
 
@@ -14,15 +14,7 @@ function App() {
           Your browser does not support the video tag.
       </video>
       {/* <div style={{backgroundColor: "lightBlue", opacity: "50%", width: "100%", height: "100%", position: 'absolute', left: 0, top: 0}}></div> */}
-      <RoundButton text="Test"></RoundButton>
-        <div className='textDiv'>
-          <button>World</button><br></br>
-          <button className='fa'>Worlda</button>
-          <button className='fb'>Worldb</button>
-          <button className='fc'>Worldc</button>
-          <button className='fd'>Worldd</button>
-          <button className='fe'>AEGIS</button>
-        </div>
+      <RightColumn/>
     </>
   )
 }
