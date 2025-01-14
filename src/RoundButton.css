@@ -1,0 +1,9 @@
+button {
+    padding-left: 5rem;
+    padding-right: 5rem;
+    border-radius: 2rem;
+    background-color: transparent;
+    color: white;
+    border-color: white;
+    border-width: 0.3rem;
+}
