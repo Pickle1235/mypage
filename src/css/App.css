@@ -5,6 +5,15 @@
   text-align: center;
 }
 
+body {
+  cursor: url('../assets/xivcursor3.svg') 10 10, auto;
+}
+
+button {
+  pointer-events: none;
+}
+
+
 .logo {
   height: 6em;
   padding: 1.5em;
