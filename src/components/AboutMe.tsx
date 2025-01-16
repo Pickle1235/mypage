@@ -1,6 +1,6 @@
 import '../css/AboutMe.css'
 
-export default function AboutMe({aboutMe = true} : {aboutMe : boolean}) {
+export default function AboutMe() {
     return (
         <>
             <a>ab</a>

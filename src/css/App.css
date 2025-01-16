@@ -10,7 +10,7 @@ body {
 }
 
 button {
-  pointer-events: none;
+  cursor: url('../assets/xivcursor3.svg') 10 10, auto;
 }
 
 

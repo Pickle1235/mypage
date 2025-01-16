@@ -68,12 +68,12 @@ button:focus-visible {
 }
 @font-face {
   font-family: 'meiryo';
-  src: local('meiryo'), url(./fonts/meiryo.ttf) format('truetype');
+  src: local('meiryo'), url(../fonts/meiryo.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'eurostar';
-  src: local('eurostar'), url(./fonts/Eurostar.ttf) format('truetype');
+  src: local('eurostar'), url(../fonts/Eurostar.ttf) format('truetype');
 }
 
 

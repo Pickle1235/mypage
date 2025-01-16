@@ -1,5 +1,25 @@
 .column {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     right: 0;
+    top: 0;
+    margin-top: 3rem;
     width: 30%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.icon {
+    color: white;
+    width: 4rem;
+    height: 4rem;
+    font-size: 100px;
+}
+
+.icon svg {
+    font-size: 100px;
 }
