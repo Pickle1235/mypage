@@ -10,12 +10,6 @@ import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 export default function RightColumn() {
     const [isAboutMe, setIsAboutMe] = useState<boolean>(true);
 
-    MyIconButton: {
-        '& svg': {
-          fontSize: '100px';
-        }
-    }
-
     if (isAboutMe) {
         return (
             <div className="column">
@@ -24,7 +18,6 @@ export default function RightColumn() {
                     <RoundButton onClick={OnClickAboutMe} text="About Me"></RoundButton>
                     <RoundButton onClick={OnClickExperience} text="Experience"></RoundButton>
                     <div className="icon">
-
                         <VolumeOffIcon className="icon"/>
                     </div>
                 </div>
@@ -34,7 +27,12 @@ export default function RightColumn() {
                 </div>
 
                 <div className="row">
-                    <hr/>
+                    <hr className="line"/>
+                </div>
+
+                <div className="select-rows">
+                    <a className="select">Summary</a>
+                    <a className="select">Education</a>
                 </div>
 
                 <AboutMe/>
@@ -47,16 +45,25 @@ export default function RightColumn() {
                 <div className="row">
                     <RoundButton onClick={OnClickAboutMe} text="About Me"></RoundButton>
                     <RoundButton onClick={OnClickExperience} text="Experience"></RoundButton>
+                    <div className="icon">
+                        <VolumeOffIcon className="icon"/>
+                    </div>
                 </div>
 
                 <div className="row">
-                    <a className="eurostar">■ Experience</a>
+                    <a className="eurostar">■ EXPERIENCE</a>
                 </div>
 
                 <div className="row">
-                    <hr/>
+                    <hr className="line"/>
                 </div>
 
+                <div className="select-rows">
+                    <a className="select">Ace Rent A Car</a>
+                    <a className="select">The athLEDA Foundation</a>
+
+                </div>
+                
 
         </div>
     )
