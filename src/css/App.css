@@ -3,6 +3,9 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 body {
@@ -68,4 +71,34 @@ button {
 .eurostar {
   font-family: "eurostar";
   font-weight: bold;
+}
+
+.main {
+  display:flex;
+  flex-direction: row;
+  position:absolute;
+  left: 0;
+  top: 0;
+  min-width: 100%;
+  width: 100%;
+  min-height: 1px;
+  width: fit-content;
+}
+
+.left {
+  position: relative;
+  width: 30%;
+  min-height: 1px;
+}
+
+.right {
+  position: relative;
+  width: 30%;
+  min-height: 1px;
+}
+
+.center {
+  display: inline-block;
+  width: 40%;
+  min-height: 1px;
 }

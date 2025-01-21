@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import RightColumn from './components/RightColumn.tsx'
+import LeftColumn from './components/LeftColumn.tsx'
+import Content from './components/Content.tsx'
 import './css/App.css'
 import './fonts/meiryo.ttf'
 import './fonts/Eurostar.ttf'
@@ -13,8 +15,17 @@ function App() {
           Your browser does not support the video tag.
       </video> */}
       <div style={{zIndex: -99, backgroundColor: "lightBlue", opacity: "50%", width: "100%", height: "100%", position: 'absolute', left: 0, top: 0}}></div>
-      <RightColumn/>
-      <a className="eurostar"></a>
+      <div className="main">
+        <div className="left">
+          <LeftColumn/>
+        </div>
+        <div className="center">
+          <Content/>
+        </div>
+        <div className="right">
+          <RightColumn/>
+        </div>
+      </div>
     </div>
   )
 }

@@ -12,7 +12,7 @@ export default function RightColumn() {
 
     if (isAboutMe) {
         return (
-            <div className="column">
+            <div className="right-column">
 
                 <div className="row">
                     <RoundButton onClick={OnClickAboutMe} text="About Me"></RoundButton>
@@ -31,16 +31,14 @@ export default function RightColumn() {
                 </div>
 
                 <div className="select-rows">
-                    <a className="select">Summary</a>
-                    <a className="select">Education</a>
+                    <a className="select">Summary</a><br/>
+                    <a className="select">Education</a><br/>
                 </div>
-
-                <AboutMe/>
             </div>
         )
     }
     return (
-        <div className="column">
+        <div className="right-column">
 
                 <div className="row">
                     <RoundButton onClick={OnClickAboutMe} text="About Me"></RoundButton>
@@ -59,22 +57,17 @@ export default function RightColumn() {
                 </div>
 
                 <div className="select-rows">
-                    <a className="select">Ace Rent A Car</a>
-                    <a className="select">The athLEDA Foundation</a>
-
+                    <a className="select">Ace Rent A Car</a><br/>
+                    <a className="select">The athLEDA Foundation</a><br/>
                 </div>
-                
-
         </div>
     )
 
     function OnClickAboutMe() {
-        console.log("am");
         setIsAboutMe(true);
     }
 
     function OnClickExperience() {
-        console.log("e");
         setIsAboutMe(false);
     }
 }

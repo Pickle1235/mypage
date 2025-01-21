@@ -1,31 +1,36 @@
-.column {
+.right-column {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    right: 0;
-    top: 0;
     margin-top: 3rem;
-    width: 30%;
 }
 
-.row {
+.right-column .row {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
 }
 
-.icon {
+.right-column .icon {
     color: white;
 }
 
-.icon svg {
+.right-column .icon svg {
     font-size: 2rem;
 }
 
-.line {
+.right-column .line {
     margin: 0;
     width: 100%;
     border: none;
     height: 0.1rem;
     background-color: #ffffff;
+}
+
+.right-column .select-rows {
+    line-height:2rem;
+    text-align: left;
+}
+
+.right-column .select-rows a {
+    text-align: left;
 }
