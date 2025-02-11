@@ -7,7 +7,29 @@ import './fonts/meiryo.ttf'
 import './fonts/Eurostar.ttf'
 
 function App() {
+  const [text, setText] = useState<string>('blank');
+  const [muted, setMuted] = useState<boolean>(true);
 
+  function onChangeMuted(muted: boolean) {
+    setMuted(muted);
+  }
+
+  function onClickContentType(type: string ) {
+    switch (type) {
+        case 'athleda':
+            setText('athleda')
+            break;
+        case 'ace':
+            setText('ace')
+            break;
+        case 'education':
+            setText('education')
+            break;
+        case 'summary':
+              setText('summary')
+              break;
+    }
+  } 
   return (
     <div>
       {/* <video loop autoPlay muted>
@@ -23,11 +45,19 @@ function App() {
           <Content/>
         </div>
         <div className="right">
-          <RightColumn/>
+          <RightColumn
+            muted = {muted}
+            onChangeMuted={onChangeMuted}
+            onClickContentType={onClickContentType}
+          />
         </div>
+      </div>
+      <div>
+        <a>{text}</a>
       </div>
     </div>
   )
+
 }
 
 export default App

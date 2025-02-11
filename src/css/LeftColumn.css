@@ -1,12 +1,8 @@
 .left-column {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin-top: 3rem;
+    padding-left: 3vw
 }
 
 .left-column .row {
-    gap: 0.5rem;
 }
