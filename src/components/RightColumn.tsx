@@ -1,12 +1,11 @@
 import '../css/RightColumn.css'
 import { useState } from "react";
-import AboutMe from './AboutMe.tsx';
 import RoundButton from './MiniComponents/RoundButton.tsx';
 import '../fonts/meiryo.ttf'
 import '../fonts/Eurostar.ttf'
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeOnIcon from '@mui/icons-material/VolumeUp';
-import { playSound } from "../utils/soundPlayer";
+import { playClickSound } from "../utils/soundPlayer";
 
 
 export default function RightColumn({ onClickContentType, onChangeMuted, muted }: { onClickContentType? : (type: string) => void, onChangeMuted? : (type: boolean) => void, muted : boolean }) {
@@ -49,14 +48,14 @@ export default function RightColumn({ onClickContentType, onChangeMuted, muted }
 
     function OnClickAboutMe() {
         if (!muted) {
-            playSound();
+            playClickSound();
         }
         setIsAboutMe(true);
     }
 
     function OnClickExperience() {
         if (!muted) {
-            playSound();
+            playClickSound();
         }
         setIsAboutMe(false);
     }

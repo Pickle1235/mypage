@@ -65,11 +65,11 @@ button {
 }
 
 .blue-border {
-  text-shadow: 0 0 1px rgba(0,0,255,0.25);
+  text-shadow: 0 0 1px rgba(0,0,255,1);
 }
 
 .green-border {
-  text-shadow: 0 0 1px rgba(0,255,0,0.25);
+  text-shadow: 0 0 1px rgba(0,255,0,1);
 }
 
 .white-text {

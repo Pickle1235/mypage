@@ -4,5 +4,12 @@
     padding-left: 3vw
 }
 
-.left-column .row {
+.tabbed-text {
+    padding-left: 3vw;
+}
+
+.no-hyperlink-style {
+    text-decoration: none;
+    cursor: url('../assets/xivcursor3.svg') 10 10, auto;
+    color: white;
 }

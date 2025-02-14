@@ -35,6 +35,10 @@
     text-align: left;
 }
 
+    .right-column .select-rows a:hover {
+        opacity: 0.9;
+    }
+
 .width-80 {
     width: 80%;
 }

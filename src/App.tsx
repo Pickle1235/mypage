@@ -2,13 +2,14 @@ import { useState } from 'react'
 import RightColumn from './components/RightColumn.tsx'
 import LeftColumn from './components/LeftColumn.tsx'
 import Content from './components/Content.tsx'
+import DraggableWindow from './components/DraggableWindow.tsx'
 import './css/App.css'
 import './fonts/meiryo.ttf'
 import './fonts/Eurostar.ttf'
 
 function App() {
-  const [text, setText] = useState<string>('blank');
   const [muted, setMuted] = useState<boolean>(true);
+  const [windowContent, setWindowContent] = useState<string>('');
 
   function onChangeMuted(muted: boolean) {
     setMuted(muted);
@@ -17,26 +18,31 @@ function App() {
   function onClickContentType(type: string ) {
     switch (type) {
         case 'athleda':
-            setText('athleda')
+            setWindowContent('athleda')
             break;
         case 'ace':
-            setText('ace')
+            setWindowContent('ace')
             break;
         case 'education':
-            setText('education')
+            setWindowContent('education')
             break;
         case 'summary':
-              setText('summary')
+              setWindowContent('summary')
               break;
     }
   } 
+
+  function onClickCloseWindow() {
+    setWindowContent('');
+  }
+
   return (
     <div>
-      {/* <video loop autoPlay muted>
+      <video loop autoPlay muted>
           <source src="https://dl.dropboxusercontent.com/scl/fi/o1fjuhd3q8dq5jjp7nv06/videoplayback.mp4?rlkey=kpgg55qfq26bu581btclrzxoo&st=gbbe0a92&dl=0" type="video/mp4" />
           Your browser does not support the video tag.
-      </video> */}
-      <div style={{zIndex: -99, backgroundColor: "lightBlue", opacity: "50%", width: "100%", height: "100%", position: 'absolute', left: 0, top: 0}}></div>
+      </video>
+      {/* <div style={{zIndex: -99, backgroundColor: "lightBlue", opacity: "50%", width: "100%", height: "100%", position: 'absolute', left: 0, top: 0}}></div> */}
       <div className="main">
         <div className="left">
           <LeftColumn/>
@@ -44,6 +50,13 @@ function App() {
         <div className="center">
           <Content/>
         </div>
+        {
+          windowContent && 
+          <DraggableWindow
+            onClickCloseWindow={onClickCloseWindow}
+            windowContent={windowContent}
+          />
+          }
         <div className="right">
           <RightColumn
             muted = {muted}
@@ -51,9 +64,6 @@ function App() {
             onClickContentType={onClickContentType}
           />
         </div>
-      </div>
-      <div>
-        <a>{text}</a>
       </div>
     </div>
   )

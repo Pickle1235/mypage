@@ -1,6 +1,6 @@
 import React from "react";
 import '../../css/RoundButton.css'
-import { playHoverSound } from "../../utils/hoverSoundPlayer"; 
+import { playHoverSound } from "../../utils/soundPlayer"; 
 
 export default function RoundButton({ onClick, text, muted }: { onClick? : React.MouseEventHandler, text: string, muted: boolean }) {
     function onHover() {

@@ -1,0 +1,18 @@
+.window {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    background: #3498db;
+    color: white;
+    padding: 10px;
+    borderRadius: 10px;
+}
+
+.close-window-button {
+    background-color: red;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: -1vh;
+    margin-right: -1vw;
+}
