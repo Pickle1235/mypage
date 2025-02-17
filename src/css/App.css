@@ -15,13 +15,14 @@ button {
   cursor: url('../assets/xivcursor3.svg') 10 10, auto;
 }
 
-.meiryo {
-  font-family: "meiryo";
-}
 
 .eurostar {
   font-family: "eurostar";
   font-weight: bold;
+}
+
+.trump {
+  font-family: "trump";
 }
 
 .main {

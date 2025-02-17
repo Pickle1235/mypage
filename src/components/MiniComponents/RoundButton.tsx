@@ -4,16 +4,13 @@ import { playHoverSound } from "../../utils/soundPlayer";
 
 export default function RoundButton({ onClick, text, muted }: { onClick? : React.MouseEventHandler, text: string, muted: boolean }) {
     function onHover() {
-        console.log('aa')
         if (!muted) {
             playHoverSound()
         }
     }
     return (
-        <div className="round-button">
-            <button className="button" onMouseEnter={() => onHover()} onClick={onClick}>{text}</button>
+        <div className="round-button" onMouseEnter={() => onHover()} onClick={onClick}>
+            <button className="button">{text}</button>
         </div>
-
-
     )
 }

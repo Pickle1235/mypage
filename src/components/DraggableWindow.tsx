@@ -1,13 +1,23 @@
 import '../css/DraggableWindow.css'
 import React from "react";
 import { useState, useRef } from "react";
+import closeButton from '../assets/close.png';
+import useWindowDimensions from '../utils/useWindowDimensions';
+import { playHoverSound } from "../utils/soundPlayer";
 
-export default function DraggableWindow({ onClickCloseWindow, windowContent }: { onClickCloseWindow? : () => void, windowContent : boolean }) {
-  const [position, setPosition] = useState({ x: 100, y: 100 });
+export default function DraggableWindow({ onClickCloseWindow, windowContent, muted } : { onClickCloseWindow? : () => void, windowContent : boolean, muted : boolean }) {
+  const { height, width } = useWindowDimensions();
+  const [position, setPosition] = useState({ x: width / 2 - 100, y: height / 2 - 75});
   const [isDragging, setIsDragging] = useState(false);
   const dragStart = useRef({ x: 0, y: 0 });
 
-  // Handle Mouse Down
+
+  function onHover() {
+      if (!muted) {
+          playHoverSound()
+      }
+  }
+
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     setIsDragging(true);
     dragStart.current = {
@@ -16,7 +26,6 @@ export default function DraggableWindow({ onClickCloseWindow, windowContent }: {
     }
   }
 
-  // Handle Mouse Move
   const handleMouseMove = (e: MouseEvent) => {
     if (!isDragging) return;
     setPosition({
@@ -25,12 +34,10 @@ export default function DraggableWindow({ onClickCloseWindow, windowContent }: {
     })
   }
 
-  // Handle Mouse Up
   const handleMouseUp = () => {
     setIsDragging(false);
   }
 
-  // Attach/Remove Global Mouse Events
   React.useEffect(() => {
     if (isDragging) {
       window.addEventListener("mousemove", handleMouseMove);
@@ -46,23 +53,14 @@ export default function DraggableWindow({ onClickCloseWindow, windowContent }: {
   }, [isDragging])
 
   return (
-    <div className="window" style={{
-        left: position.x,
-        top: position.y}}>
-      <div
-        onMouseDown={handleMouseDown}
+    <div 
+        className="window" 
         style={{
-          background: "#2980b9",
-          padding: "5px",
-          textAlign: "center",
-          borderRadius: "5px",
-        }}
-      >
-        Drag Me
-      </div>
-      <button className="close-window-button" onClick={onClickCloseWindow}>
-
-      </button>
+          left: position.x,
+          top: position.y}}
+    >
+      <div className="drag-bar" onMouseDown={handleMouseDown}/>
+      <img className="close-window-button" onMouseEnter={() => onHover()} onClick={onClickCloseWindow} src={closeButton}></img>
       <p>{windowContent}</p>
     </div>
   )

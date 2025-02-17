@@ -1,7 +1,8 @@
 .left-column {
     display: flex;
     flex-direction: column;
-    padding-left: 3vw
+    padding-left: 3vw;
+    gap: 3vh;
 }
 
 .tabbed-text {

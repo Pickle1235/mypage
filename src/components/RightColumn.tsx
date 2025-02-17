@@ -1,16 +1,20 @@
 import '../css/RightColumn.css'
 import { useState } from "react";
 import RoundButton from './MiniComponents/RoundButton.tsx';
-import '../fonts/meiryo.ttf'
-import '../fonts/Eurostar.ttf'
+import '../fonts/trump.ttf'
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeOnIcon from '@mui/icons-material/VolumeUp';
-import { playClickSound } from "../utils/soundPlayer";
-
+import { playHoverSound, playClickSound } from "../utils/soundPlayer";
 
 export default function RightColumn({ onClickContentType, onChangeMuted, muted }: { onClickContentType? : (type: string) => void, onChangeMuted? : (type: boolean) => void, muted : boolean }) {
     const [isAboutMe, setIsAboutMe] = useState<boolean>(true);
 
+    function onHover() {
+        if (!muted) {
+            playHoverSound()
+        }
+    }
+    
     return (
         <div className="right-column">
             <div className="row center-vertical width-80">
@@ -35,12 +39,12 @@ export default function RightColumn({ onClickContentType, onChangeMuted, muted }
 
             <div className="select-rows">
                 {isAboutMe && <div>
-                    <a className="select" onClick={() => onClickContentType?.('summary')}>Summary</a><br/>
-                    <a className="select" onClick={() => onClickContentType?.('education')}>Education</a><br/>
+                    <a className="select trump" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('summary')}>Summary</a><br/>
+                    <a className="select " onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('education')}>Education</a><br/>
                 </div>}
                 {!isAboutMe && <div>
-                    <a className="select" onClick={() => onClickContentType?.('ace')}>Ace Rent A Car</a><br/>
-                    <a className="select" onClick={() => onClickContentType?.('athleda')}>The athLEDA Foundation</a><br/>
+                    <a className="select" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('ace')}>Ace Rent A Car</a><br/>
+                    <a className="select" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('athleda')}>The athLEDA Foundation</a><br/>
                 </div>}
             </div>
         </div>
