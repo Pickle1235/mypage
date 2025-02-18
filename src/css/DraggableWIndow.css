@@ -1,7 +1,7 @@
 .window {
     position: absolute;
-    width: 200px;
-    height: 150px;
+    width: 30vw;
+    height: 60vh;
     background-color: #302b31;
     border-radius: 10px;
     border-color: #847267;

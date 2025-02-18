@@ -5,7 +5,7 @@ import closeButton from '../assets/close.png';
 import useWindowDimensions from '../utils/useWindowDimensions';
 import { playHoverSound } from "../utils/soundPlayer";
 
-export default function DraggableWindow({ onClickCloseWindow, windowContent, muted } : { onClickCloseWindow? : () => void, windowContent : boolean, muted : boolean }) {
+export default function DraggableWindow({ onClickCloseWindow, windowContent, muted } : { onClickCloseWindow? : () => void, windowContent : string, muted : boolean }) {
   const { height, width } = useWindowDimensions();
   const [position, setPosition] = useState({ x: width / 2 - 100, y: height / 2 - 75});
   const [isDragging, setIsDragging] = useState(false);

@@ -1,16 +1,27 @@
 import '../css/LeftColumn.css'
-import { useState } from "react";
 import '../fonts/eurostar.ttf'
 import '../fonts/trump.ttf'
-
+import { playHoverSound, playClickSound } from "../utils/soundPlayer";
 
 export default function LeftColumn( {muted} : { muted : boolean} ) {
+
+        function onHover() {
+            if (!muted) {
+                playHoverSound()
+            }
+        }
+
+            function onClick() {
+                if (!muted) {
+                    playClickSound()
+                }
+            }
 
         return (
             <div className="left-column">
                 <div className="row">
                     <a className="eurostar blue-border white-text">■ NAME</a><br />
-                    <a className="tabbed-tex trump blue-border white-text">Peter An</a>
+                    <a className="tabbed-text trump blue-border white-text">Peter An</a>
                 </div>
                 <div className="row">
                     <a className="eurostar blue-border white-text">■ DEGREE</a><br />
@@ -22,7 +33,7 @@ export default function LeftColumn( {muted} : { muted : boolean} ) {
                 </div>
                 <div className="row">
                     <a className="eurostar blue-border white-text">■ EMAIL</a><br />
-                    <a href="mailto:peteran1236@gmail.com" className="tabbed-text no-hyperlink-style trump blue-border white-text">peteran1236@gmail.com</a>
+                    <a href="mailto:peteran1236@gmail.com" onMouseEnter={() => onHover()} onClick={() => onClick()} className="tabbed-text no-hyperlink-style trump blue-border white-text">peteran1236@gmail.com</a>
                 </div>
             </div>
             

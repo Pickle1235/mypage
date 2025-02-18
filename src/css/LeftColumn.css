@@ -1,12 +1,13 @@
 .left-column {
     display: flex;
     flex-direction: column;
+    text-align: left;
     padding-left: 3vw;
     gap: 3vh;
 }
 
 .tabbed-text {
-    padding-left: 3vw;
+    padding-left: 2vw;
 }
 
 .no-hyperlink-style {

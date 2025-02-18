@@ -39,12 +39,12 @@ export default function RightColumn({ onClickContentType, onChangeMuted, muted }
 
             <div className="select-rows">
                 {isAboutMe && <div>
-                    <a className="select trump" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('summary')}>Summary</a><br/>
-                    <a className="select " onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('education')}>Education</a><br/>
+                    <a className="select trump blue-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('summary')}>Summary</a><br/>
+                    <a className="select trump blue-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('education')}>Education</a><br/>
                 </div>}
                 {!isAboutMe && <div>
-                    <a className="select" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('ace')}>Ace Rent A Car</a><br/>
-                    <a className="select" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('athleda')}>The athLEDA Foundation</a><br/>
+                    <a className="select trump blue-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('ace')}>Ace Rent A Car</a><br/>
+                    <a className="select trump blue-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('athleda')}>The athLEDA Foundation</a><br/>
                 </div>}
             </div>
         </div>
