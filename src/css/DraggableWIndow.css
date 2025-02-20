@@ -3,9 +3,34 @@
     width: 30vw;
     height: 60vh;
     background-color: #302b31;
-    border-radius: 10px;
-    border-color: #847267;
-    border: 0.2vw solid #847267;
+    border-radius: 0.2vw;
+    border: 0.2vw solid none;
+    margin:0;
+    padding:0;
+    left: 0.15vw;
+    top: 0.15vw;
+}
+
+.window-border {
+    --r:0.2vw;     /* radius   */
+    --g:#847267 0%,white; /* gradient */
+    position: absolute;
+    width: 30.3vw;
+    height: calc(60vh + 0.3vw);
+    --rg:transparent 50%,var(--g);
+    border-radius:calc(2*var(--r));
+    background:
+      /*corners*/
+      radial-gradient(farthest-side at bottom right,var(--rg)) top    left /calc(2*var(--r)) calc(2*var(--r)),
+      radial-gradient(farthest-side at top    right,var(--rg)) bottom left /calc(2*var(--r)) calc(2*var(--r)),
+      radial-gradient(farthest-side at bottom left ,var(--rg)) top    right/calc(2*var(--r)) calc(2*var(--r)),
+      radial-gradient(farthest-side at top    left ,var(--rg)) bottom right/calc(2*var(--r)) calc(2*var(--r)),
+      /* borders*/
+      linear-gradient(to top   ,var(--g)) top   /calc(100% - 4*var(--r)) var(--r),
+      linear-gradient(to bottom,var(--g)) bottom/calc(100% - 4*var(--r)) var(--r),
+      linear-gradient(to right ,var(--g)) right /var(--r) calc(100% - 4*var(--r)),
+      linear-gradient(to left  ,var(--g)) left  /var(--r) calc(100% - 4*var(--r));
+    background-repeat:no-repeat;
 }
 
 .drag-bar {

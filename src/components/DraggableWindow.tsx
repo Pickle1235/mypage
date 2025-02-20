@@ -7,7 +7,7 @@ import { playHoverSound } from "../utils/soundPlayer";
 
 export default function DraggableWindow({ onClickCloseWindow, windowContent, muted } : { onClickCloseWindow? : () => void, windowContent : string, muted : boolean }) {
   const { height, width } = useWindowDimensions();
-  const [position, setPosition] = useState({ x: width / 2 - 100, y: height / 2 - 75});
+  const [position, setPosition] = useState({ x: width / 2 - (width * 0.306 / 2), y: height / 2 - ((height * 0.6 + width * 0.006) / 2)});
   const [isDragging, setIsDragging] = useState(false);
   const dragStart = useRef({ x: 0, y: 0 });
 
@@ -53,15 +53,18 @@ export default function DraggableWindow({ onClickCloseWindow, windowContent, mut
   }, [isDragging])
 
   return (
-    <div 
-        className="window" 
-        style={{
-          left: position.x,
-          top: position.y}}
-    >
-      <div className="drag-bar" onMouseDown={handleMouseDown}/>
-      <img className="close-window-button" onMouseEnter={() => onHover()} onClick={onClickCloseWindow} src={closeButton}></img>
-      <p>{windowContent}</p>
+    <div className="window-border"
+    style={{
+      left: position.x,
+      top: position.y}}>
+      <div 
+          className="window" 
+      >
+        <div className="drag-bar" onMouseDown={handleMouseDown}/>
+        <img className="close-window-button" onMouseEnter={() => onHover()} onClick={onClickCloseWindow} src={closeButton}></img>
+        <p>{windowContent}</p>
+      </div>
     </div>
+
   )
 }

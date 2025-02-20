@@ -10,7 +10,7 @@ export default function RoundButton({ onClick, text, muted }: { onClick? : React
     }
     return (
         <div className="round-button" onMouseEnter={() => onHover()} onClick={onClick}>
-            <button className="button">{text}</button>
+            <button className="button blue-border">{text}</button>
         </div>
     )
 }
