@@ -5,7 +5,7 @@ import closeButton from '../assets/close.png';
 import useWindowDimensions from '../utils/useWindowDimensions';
 import { playHoverSound } from "../utils/soundPlayer";
 
-export default function DraggableWindow({ onClickCloseWindow, windowContent, muted } : { onClickCloseWindow? : () => void, windowContent : string, muted : boolean }) {
+export default function DraggableWindow({ onClickCloseWindow, windowContent, muted } : { onClickCloseWindow? : () => void, windowContent : string[], muted : boolean }) {
   const { height, width } = useWindowDimensions();
   const [position, setPosition] = useState({ x: width / 2 - (width * 0.306 / 2), y: height / 2 - ((height * 0.6 + width * 0.006) / 2)});
   const [isDragging, setIsDragging] = useState(false);
@@ -52,6 +52,17 @@ export default function DraggableWindow({ onClickCloseWindow, windowContent, mut
     };
   }, [isDragging])
 
+  const renderTexts = (): JSX.Element[] => {
+    const elements: JSX.Element[] = [];
+
+    for (let i = 0; i < windowContent.length; i++) {
+      elements.push(<p key={i}>{windowContent[i]}</p>);
+      console.log(windowContent[i]);
+    }
+
+    return elements;
+  };
+
   return (
     <div className="window-border"
     style={{
@@ -62,7 +73,9 @@ export default function DraggableWindow({ onClickCloseWindow, windowContent, mut
       >
         <div className="drag-bar" onMouseDown={handleMouseDown}/>
         <img className="close-window-button" onMouseEnter={() => onHover()} onClick={onClickCloseWindow} src={closeButton}></img>
-        <p>{windowContent}</p>
+        <div>
+          {renderTexts()}
+        </div>
       </div>
     </div>
 
