@@ -83,3 +83,30 @@ button {
 .white-text {
   color: white;
 }
+
+.black-text {
+  color: black;
+}
+
+.blue-background {
+  background-color: #17515f;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  padding:0;
+  margin:0;
+  top:0;
+  left:0;
+}
+
+.loading-text-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.loading-text {
+  font-size: 2vw;
+
+}
