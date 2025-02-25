@@ -18,6 +18,7 @@
     .round-button button:hover {
         color: white;
         border-color: white;
+        opacity: 0.8;
     }
     .round-button button:focus {
         color: white;

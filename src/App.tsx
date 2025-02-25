@@ -8,9 +8,10 @@ import './fonts/trump.ttf'
 import { playClickSound, playClickSoundTwo } from "./utils/soundPlayer";
 
 function App() {
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const [muted, setMuted] = useState<boolean>(true);
   const [windowContent, setWindowContent] = useState<string[]>([]);
+  const [contentType, setContentType] = useState('summary');
 
   function onChangeMuted(muted: boolean) {
     setMuted(muted);
@@ -22,6 +23,7 @@ function App() {
   const summaryText : string[] = ['Summary', 'Text'];
 
   function onClickContentType(type: string ) {
+    setContentType(type);
     switch (type) {
         case 'athleda':
           setWindowContent(athledaText);
@@ -53,10 +55,10 @@ function App() {
 
   return (
     <div className='blue-background'>
-      <video loop autoPlay muted onCanPlayThrough={() => setLoading(false)}>
+      {/* <video loop autoPlay muted onCanPlayThrough={() => setLoading(false)}>
             <source src="https://dl.dropboxusercontent.com/scl/fi/o1fjuhd3q8dq5jjp7nv06/videoplayback.mp4?rlkey=kpgg55qfq26bu581btclrzxoo&st=gbbe0a92&dl=0" type="video/mp4"/>
         Your browser does not support the video tag.
-      </video>
+      </video> */}
       {loading && 
         <div className='loading-text-div'>
           <a className='loading-text'>
@@ -85,6 +87,7 @@ function App() {
               muted={muted}
               onChangeMuted={onChangeMuted}
               onClickContentType={onClickContentType}
+              contentType={contentType}
             />
           </div>
         </div>

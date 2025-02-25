@@ -33,7 +33,7 @@ export default function LeftColumn( {muted} : { muted : boolean} ) {
                 </div>
                 <div className="row">
                     <a className="eurostar blue-border white-text">■ EMAIL</a><br />
-                    <a href="mailto:peteran1236@gmail.com" onMouseEnter={() => onHover()} onClick={() => onClick()} className="tabbed-text no-hyperlink-style trump blue-border white-text">peteran1236@gmail.com</a>
+                    <a href="mailto:peteran1236@gmail.com" onMouseEnter={() => onHover()} onClick={() => onClick()} className="tabbed-text no-hyperlink-style trump blue-border white-text clickable">peteran1236@gmail.com</a>
                 </div>
             </div>
             

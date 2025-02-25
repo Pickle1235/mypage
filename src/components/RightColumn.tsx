@@ -6,7 +6,7 @@ import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeOnIcon from '@mui/icons-material/VolumeUp';
 import { playHoverSound, playClickSound } from "../utils/soundPlayer";
 
-export default function RightColumn({ onClickContentType, onChangeMuted, muted }: { onClickContentType? : (type: string) => void, onChangeMuted? : (type: boolean) => void, muted : boolean }) {
+export default function RightColumn({ onClickContentType, onChangeMuted, contentType, muted }: { onClickContentType? : (type: string) => void, onChangeMuted? : (type: boolean) => void, contentType : string, muted : boolean }) {
     const [isAboutMe, setIsAboutMe] = useState<boolean>(true);
 
     function onHover() {
@@ -36,15 +36,20 @@ export default function RightColumn({ onClickContentType, onChangeMuted, muted }
             <div>
                 <hr className="line"/>
             </div>
-
             <div className="select-rows">
                 {isAboutMe && <div>
-                    <a className="select trump blue-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('summary')}>Summary</a><br/>
-                    <a className="select trump blue-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('education')}>Education</a><br/>
+                    {contentType != 'summary' && <a className="select trump blue-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('summary')}>Summary</a>}
+                    {contentType == 'summary' && <a className="select trump green-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('summary')}>Summary</a>}
+                    <br/>
+                    {contentType != 'education' && <a className="select trump blue-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('education')}>Education</a>}
+                    {contentType == 'education' && <a className="select trump green-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('education')}>Education</a>}
                 </div>}
                 {!isAboutMe && <div>
-                    <a className="select trump blue-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('ace')}>Ace Rent A Car</a><br/>
-                    <a className="select trump blue-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('athleda')}>The athLEDA Foundation</a><br/>
+                    {contentType != 'ace' && <a className="select trump blue-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('ace')}>Ace Rent A Car</a>}
+                    {contentType == 'ace' && <a className="select trump green-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('ace')}>Ace Rent A Car</a>}
+                    <br/>
+                    {contentType != 'athleda' && <a className="select trump blue-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('athleda')}>The athLEDA Foundation</a>}
+                    {contentType == 'athleda' && <a className="select trump green-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('athleda')}>The athLEDA Foundation</a>}
                 </div>}
             </div>
         </div>

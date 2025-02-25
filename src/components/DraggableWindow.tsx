@@ -64,20 +64,17 @@ export default function DraggableWindow({ onClickCloseWindow, windowContent, mut
   };
 
   return (
-    <div className="window-border"
-    style={{
-      left: position.x,
-      top: position.y}}>
-      <div 
-          className="window" 
-      >
-        <div className="drag-bar" onMouseDown={handleMouseDown}/>
-        <img className="close-window-button" onMouseEnter={() => onHover()} onClick={onClickCloseWindow} src={closeButton}></img>
-        <div>
-          {renderTexts()}
-        </div>
+    <div 
+        className="window"     
+        style={{
+          left: position.x,
+          top: position.y}}
+    >
+      <div className="drag-bar" onMouseDown={handleMouseDown}/>
+      <img className="close-window-button" onMouseEnter={() => onHover()} onClick={onClickCloseWindow} src={closeButton}></img>
+      <div>
+        {renderTexts()}
       </div>
     </div>
-
   )
 }
