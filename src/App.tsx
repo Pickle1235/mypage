@@ -14,7 +14,7 @@ function App() {
   const aceText : string[] = ['ace', 'rent', 'a', 'car'];
   const educationText : string[] = ['Purdue', 'University'];
   const summaryText : string[] = 
-  ['Calling to mind Valigarmanda a a a a a a a a a a a a a a a aa a Calling to mind Valigarmanda Calling to mind Valigarmanda', 'Wings of Ruin'];
+  ['My name is Peter An.', ''];
 
   const audioRef = useRef();
 
