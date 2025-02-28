@@ -68,11 +68,12 @@ export default function DraggableWindow({ onClickCloseWindow, windowContent, mut
         className="window"     
         style={{
           left: position.x,
-          top: position.y}}
+          top: position.y,
+        }}
     >
       <div className="drag-bar" onMouseDown={handleMouseDown}/>
       <img className="close-window-button" onMouseEnter={() => onHover()} onClick={onClickCloseWindow} src={closeButton}></img>
-      <div>
+      <div className="meiryo text-area">
         {renderTexts()}
       </div>
     </div>

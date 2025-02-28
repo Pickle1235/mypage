@@ -10,6 +10,7 @@
     padding:0;
     left: 0.15vw;
     top: 0.15vw;
+    z-index: 5;
 }
 
 
@@ -21,7 +22,9 @@
     padding: 0;
 }
 
-
+.text-area {
+    padding: 1vw;
+}
 
 .close-window-button {
     background-color: none;

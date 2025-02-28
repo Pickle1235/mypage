@@ -1,26 +1,37 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import RightColumn from './components/RightColumn.tsx'
 import LeftColumn from './components/LeftColumn.tsx'
 import DraggableWindow from './components/DraggableWindow.tsx'
 import './css/App.css'
 import './fonts/eurostar.ttf'
 import './fonts/trump.ttf'
+import './fonts/meiryo.ttf'
 import { playClickSound, playClickSoundTwo } from "./utils/soundPlayer";
+import musicSoundFile from "./assets/music.mp3";
 
 function App() {
-  const [loading, setLoading] = useState<boolean>(false);
-  const [muted, setMuted] = useState<boolean>(true);
-  const [windowContent, setWindowContent] = useState<string[]>([]);
-  const [contentType, setContentType] = useState('summary');
-
-  function onChangeMuted(muted: boolean) {
-    setMuted(muted);
-  }
-
   const athledaText : string[] = ['ath', 'leda'];
   const aceText : string[] = ['ace', 'rent', 'a', 'car'];
   const educationText : string[] = ['Purdue', 'University'];
-  const summaryText : string[] = ['Summary', 'Text'];
+  const summaryText : string[] = 
+  ['Calling to mind Valigarmanda a a a a a a a a a a a a a a a aa a Calling to mind Valigarmanda Calling to mind Valigarmanda', 'Wings of Ruin'];
+
+  const audioRef = useRef();
+
+  const [loading, setLoading] = useState<boolean>(false);
+  const [muted, setMuted] = useState<boolean>(true);
+  const [windowContent, setWindowContent] = useState<string[]>(summaryText);
+  const [contentType, setContentType] = useState('summary');
+
+  function onChangeMuted(muted: boolean) {
+    if (muted) {
+      audioRef.current.pause();
+    }
+    else {
+      audioRef.current.play();
+    }
+    setMuted(muted);
+  }
 
   function onClickContentType(type: string ) {
     setContentType(type);
@@ -49,12 +60,22 @@ function App() {
   function onClickCloseWindow() {
     setWindowContent([]);
     if (!muted) {
-      playClickSound();
+      playCloseSound();
     }
   }
 
   return (
     <div className='blue-background'>
+      <audio
+        controls = "controls"
+        preload = "auto"
+        autobuffer = "true"
+        style = {{display: "none"}}
+        ref = {audioRef}
+        loop
+      >
+       <source src={musicSoundFile} />
+      </audio>
       {/* <video loop autoPlay muted onCanPlayThrough={() => setLoading(false)}>
             <source src="https://dl.dropboxusercontent.com/scl/fi/o1fjuhd3q8dq5jjp7nv06/videoplayback.mp4?rlkey=kpgg55qfq26bu581btclrzxoo&st=gbbe0a92&dl=0" type="video/mp4"/>
         Your browser does not support the video tag.

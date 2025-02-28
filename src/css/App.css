@@ -21,6 +21,10 @@ button {
   font-weight: bold;
 }
 
+.meiryo {
+  font-family: "meiryo";
+}
+
 .trump {
   font-family: "trump";
   display: inline-block;

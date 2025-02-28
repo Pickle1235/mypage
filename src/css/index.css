@@ -68,6 +68,12 @@ button:focus-visible {
   src: local('eurostar'), url(../fonts/eurostar.ttf);
 }
 
+@font-face {
+  font-family: 'meiryo';
+  src: local('meiryo'), url(../fonts/meiryo.ttf);
+}
+
+
 video {
   width: 100%;
   height: 100vh;
