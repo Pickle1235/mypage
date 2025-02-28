@@ -76,10 +76,10 @@ function App() {
       >
        <source src={musicSoundFile} />
       </audio>
-      {/* <video loop autoPlay muted onCanPlayThrough={() => setLoading(false)}>
+      <video loop autoPlay muted onCanPlayThrough={() => setLoading(false)}>
             <source src="https://dl.dropboxusercontent.com/scl/fi/o1fjuhd3q8dq5jjp7nv06/videoplayback.mp4?rlkey=kpgg55qfq26bu581btclrzxoo&st=gbbe0a92&dl=0" type="video/mp4"/>
         Your browser does not support the video tag.
-      </video> */}
+      </video>
       {loading && 
         <div className='loading-text-div'>
           <a className='loading-text'>
@@ -88,7 +88,6 @@ function App() {
         </div>
       }
       {!loading && <div>
-        {/* <div style={{zIndex: -99, backgroundColor: "lightBlue", opacity: "50%", width: "100%", height: "100%", position: 'absolute', left: 0, top: 0}}></div> */}
         <div className="main">
           <div className="left">
             <LeftColumn muted={muted}/>
